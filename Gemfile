@@ -8,6 +8,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 
+gem 'friendly_id', '~> 5.1.0'
+
 group :development, :test do
   gem 'byebug'
 end
