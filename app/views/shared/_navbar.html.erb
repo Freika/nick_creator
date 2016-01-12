@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Awesome Name', root_path, class: 'navbar-brand' %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown <%= 'active' if @game.name == 'World of Warcraft' %>">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World of Warcraft <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Orc</a></li>
+            <li><a href="#">Troll</a></li>
+            <li><a href="#">Undead</a></li>
+            <li><a href="#">Tauren</a></li>
+            <li><a href="#">Blood Elf</a></li>
+            <li><a href="#">Goblin</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Human</a></li>
+            <li><a href="#">Gnome</a></li>
+            <li><a href="#">Dwarf</a></li>
+            <li><a href="#">Night Elf</a></li>
+            <li><a href="#">Draenei</a></li>
+            <li><a href="#">Worgen</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Pandaren</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown <%= 'active' if @game.name == 'Guild Wars' %>">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guild Wars <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Human</a></li>
+            <li><a href="#">Norn</a></li>
+            <li><a href="#">Charr</a></li>
+            <li><a href="#">Asura</a></li>
+            <li><a href="#">Sylvari</a></li>
+          </ul>
+        </li>
+        <li class="dropdown <%= 'active' if @game.name == 'The Elder Scrolls' %>">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">The Elder Scrolls <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Breton</a></li>
+            <li><a href="#">Redguard</a></li>
+            <li><a href="#">Orc</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Nord</a></li>
+            <li><a href="#">Dark Elf</a></li>
+            <li><a href="#">Argonian</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">High Elf</a></li>
+            <li><a href="#">Wood Elf</a></li>
+            <li><a href="#">Khajiit</a></li>
+          </ul>
+        </li>
+
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>
