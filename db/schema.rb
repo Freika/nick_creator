@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112110143) do
+ActiveRecord::Schema.define(version: 20160112115628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160112110143) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "short_slug"
   end
 
   create_table "nicks", force: :cascade do |t|
@@ -32,7 +33,8 @@ ActiveRecord::Schema.define(version: 20160112110143) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "game_id"
+    t.integer  "game_id",    null: false
+    t.string   "short_slug"
   end
 
   create_table "syllables", force: :cascade do |t|
@@ -40,11 +42,9 @@ ActiveRecord::Schema.define(version: 20160112110143) do
     t.string   "part"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "game"
-    t.string   "race"
     t.string   "sex"
-    t.integer  "game_id"
-    t.integer  "race_id"
+    t.integer  "game_id",    null: false
+    t.integer  "race_id",    null: false
   end
 
 end

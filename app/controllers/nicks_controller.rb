@@ -3,7 +3,7 @@ class NicksController < ApplicationController
   end
 
   def create
-    nick = Nick.generate
+    nick = Nick.generate(params[:game], params[:race], params[:sex])
     render json: nick
   end
 end

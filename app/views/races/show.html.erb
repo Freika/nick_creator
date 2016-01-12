@@ -1,0 +1,6 @@
+<%= render layout: 'shared/nickbox', locals: { title: 'some title' } do %>
+  <%= link_to 'Male', '#', class: 'btn btn-success btn-lg generate_nickname',
+    data: { sex: 'male', game: @race.game.id, race: @race.id } %>
+  <%= link_to 'Female', '#', class: 'btn btn-success btn-lg generate_nickname',
+    data: { sex: 'female', game: @race.game.id, race: @race.id } %>
+<% end %>
