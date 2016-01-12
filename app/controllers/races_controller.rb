@@ -1,6 +1,6 @@
 class RacesController < ApplicationController
   def show
-    @race = Race.find(params[:id])
+    @race = Race.friendly.find(params[:id])
     @game = @race.game
   end
 end

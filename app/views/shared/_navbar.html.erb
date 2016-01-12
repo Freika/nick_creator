@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown <%= 'active' if @game.name == 'World of Warcraft' %>">
+        <li class="dropdown disabled <%= 'active' if params[:game_id] == 'world-of-warcraft' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World of Warcraft <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Orc</a></li>
@@ -35,7 +35,7 @@
           </ul>
         </li>
 
-        <li class="dropdown <%= 'active' if @game.name == 'Guild Wars' %>">
+        <li class="dropdown disabled <%= 'active' if params[:game_id] == 'guild-wars' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guild Wars <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Human</a></li>
@@ -45,20 +45,20 @@
             <li><a href="#">Sylvari</a></li>
           </ul>
         </li>
-        <li class="dropdown <%= 'active' if @game.name == 'The Elder Scrolls' %>">
+        <li class="dropdown <%= 'active' if params[:game_id] == 'the-elder-scrolls' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">The Elder Scrolls <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Breton</a></li>
-            <li><a href="#">Redguard</a></li>
-            <li><a href="#">Orc</a></li>
+            <li><%= link_to 'Breton', game_race_path('the-elder-scrolls', 'breton') %></li>
+            <li><%= link_to 'Redguard', game_race_path('the-elder-scrolls', 'redguard') %></li>
+            <li><%= link_to 'Orc', game_race_path('the-elder-scrolls', 'ord') %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Nord</a></li>
-            <li><a href="#">Dark Elf</a></li>
-            <li><a href="#">Argonian</a></li>
+            <li><%= link_to 'Nord', game_race_path('the-elder-scrolls', 'nord') %></li>
+            <li><%= link_to 'Dark Elf', game_race_path('the-elder-scrolls', 'dark-elf') %></li>
+            <li><%= link_to 'Argonian', game_race_path('the-elder-scrolls', 'argonian') %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">High Elf</a></li>
-            <li><a href="#">Wood Elf</a></li>
-            <li><a href="#">Khajiit</a></li>
+            <li><%= link_to 'High Elf', game_race_path('the-elder-scrolls', 'high-elf') %></li>
+            <li><%= link_to 'Wood Elf', game_race_path('the-elder-scrolls', 'wood-elf') %></li>
+            <li><%= link_to 'Khajiit', game_race_path('the-elder-scrolls', 'khajiit') %></li>
           </ul>
         </li>
 
