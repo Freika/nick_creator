@@ -3,6 +3,7 @@ class NicksController < ApplicationController
   end
 
   def create
-    render text: Nick.generate
+    nick = Nick.generate
+    render json: nick
   end
 end

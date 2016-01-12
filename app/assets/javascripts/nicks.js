@@ -3,7 +3,7 @@ $(document).ready(function($) {
     $.ajax({
       url: '/nicks/create',
       success: function(nick) {
-        $('#nickname').text(nick);
+        $('#nickname').text(nick.name);
       }
     });
   });
