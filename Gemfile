@@ -12,6 +12,9 @@ gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec', require: false
 end
 
 group :development do
@@ -19,3 +22,11 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'capybara', '~> 2.4.0'
+  gem 'launchy', '~> 2.4'
+  gem 'database_cleaner', '~> 1.3'
+  gem 'shoulda-matchers', require: false
+  gem 'capybara-webkit'
+  gem 'codeclimate-test-reporter', require: nil
+end
