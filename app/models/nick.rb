@@ -13,10 +13,12 @@ class Nick < ActiveRecord::Base
 
     if surname.present?
       surname = Syllable.where(part: 'surname', game_id: game, race_id: race, sex: sex).pluck(:content).sample
-      if rand > 0.5
+      if rand > 0.5 && surname.present?
         name = "#{name.capitalize} the #{surname}"
-      else
+      elsif surname.present?
         name = "#{name.capitalize} #{surname}"
+      else
+        name = name.capitalize
       end
     end
 

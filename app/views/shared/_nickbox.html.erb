@@ -1,7 +1,11 @@
 <h2 class="text-center" id="nickname">
   Place for nickname
-</h1>
+</h2>
 
 <div class="text-center">
-  <%= yield %>
+  <%= link_to 'Male', '#', class: 'btn btn-success btn-lg generate_nickname',
+    data: { sex: 'male', game: @race.game.id, race: @race.id } %>
+  <%= link_to 'Female', '#', class: 'btn btn-success btn-lg generate_nickname',
+    data: { sex: 'female', game: @race.game.id, race: @race.id } %>
+  <%#= yield %>
 </div>
