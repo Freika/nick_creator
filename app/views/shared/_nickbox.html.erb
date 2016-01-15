@@ -7,5 +7,9 @@
     data: { sex: 'male', game: @race.game.id, race: @race.id } %>
   <%= link_to 'Female', '#', class: 'btn btn-success btn-lg generate_nickname',
     data: { sex: 'female', game: @race.game.id, race: @race.id } %>
+  <br>
+  <small>
+    There is <%= number_with_delimiter(@total_combinations, delimiter: ' ') %> possible unique nickname combinations
+  </small>
   <%#= yield %>
 </div>

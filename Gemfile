@@ -10,6 +10,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'text-hyphen'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

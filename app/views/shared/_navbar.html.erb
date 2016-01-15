@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="dropdown disabled <%= 'active' if params[:game_id] == 'world-of-warcraft' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World of Warcraft <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <!-- <ul class="dropdown-menu">
             <li><a href="#">Orc</a></li>
             <li><a href="#">Troll</a></li>
             <li><a href="#">Undead</a></li>
@@ -32,19 +32,19 @@
             <li><a href="#">Worgen</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Pandaren</a></li>
-          </ul>
+          </ul> -->
         </li>
 
         <li class="dropdown disabled <%= 'active' if params[:game_id] == 'guild-wars' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guild Wars <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+<!--           <ul class="dropdown-menu">
             <li><a href="#">Human</a></li>
             <li><a href="#">Norn</a></li>
             <li><a href="#">Charr</a></li>
             <li><a href="#">Asura</a></li>
             <li><a href="#">Sylvari</a></li>
           </ul>
-        </li>
+ -->        </li>
         <li class="dropdown <%= 'active' if params[:game_id] == 'the-elder-scrolls' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">The Elder Scrolls <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -57,7 +57,7 @@
             <li><%= link_to 'Argonian', game_race_path('the-elder-scrolls', 'argonian') %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'High Elf (Altmer)', game_race_path('the-elder-scrolls', 'high-elf-altmer') %></li>
-            <li><%= link_to 'Wood Elf', game_race_path('the-elder-scrolls', 'wood-elf') %></li>
+            <li><%= link_to 'Wood Elf (Bosmer)', game_race_path('the-elder-scrolls', 'wood-elf-bosmer') %></li>
             <li><%= link_to 'Khajiit', game_race_path('the-elder-scrolls', 'khajiit') %></li>
           </ul>
         </li>
