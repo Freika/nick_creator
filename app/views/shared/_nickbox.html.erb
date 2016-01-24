@@ -9,7 +9,7 @@
     data: { sex: 'female', game: @race.game.id, race: @race.id } %>
   <br>
   <small>
-    There is <%= number_with_delimiter(@total_combinations, delimiter: ' ') %> possible unique nickname combinations
+    There is more than <%= number_with_delimiter(@total_combinations, delimiter: ' ') %> possible unique nickname combinations
   </small>
   <%#= yield %>
 </div>

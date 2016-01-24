@@ -5,6 +5,7 @@ class RacesController < ApplicationController
     beginnings = Syllable.where(game_id: @race.game.id, race_id: @race.id, part: 'beginning').count
     middles = Syllable.where(game_id: @race.game.id, race_id: @race.id, part: 'middle').count
     ends = Syllable.where(game_id: @race.game.id, race_id: @race.id, part: 'end').count
+
     @total_combinations = beginnings * middles * ends
   end
 end

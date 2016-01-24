@@ -9,29 +9,118 @@ class Nick < ActiveRecord::Base
     # TES Nords has only one surame_slug
     # TES Breton has two surame_slugs
 
+    game = Game.find(game)
+    race = Race.find(race)
+
+    if game.name == 'The Elder Scrolls'
+      case race.name
+      when 'Nord'
+        name = nord_name_and_surname(game.id, race.id, sex)
+      when 'High Elf (Altmer)'
+        name = name_without_surname(game.id, race.id, sex)
+      when 'Argonian'
+        name = name_without_surname(game.id, race, sex)
+      when 'Wood Elf (Bosmer)'
+        name = name_without_surname(game.id, race, sex)
+      when 'Breton'
+        name = breton_name(game.id, race, sex)
+      when 'Khajiit'
+        name = name_without_surname(game.id, race.id, sex)
+      when 'Dark Elf (Dunmer)'
+        name = name_with_simple_surname(game.id, race.id, sex)
+      when 'Orc'
+        name = orc_name(game.id, race.id, sex)
+      when 'Redguard'
+        name = name_without_surname(game.id, race.id, sex)
+      else
+
+      end
+
+    elsif game.name == 'World of Warcraft'
+
+    end
+
+    name
+  end
+
+  def self.name_without_surname(game, race, sex)
     name = ''
     %w(beginning middle end).each do |part|
       name += Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
     end
 
-    if surname.present? && surname_slugs.present?
-      surname = Syllable.where(part: 'surname_beginning', game_id: game, race_id: race, sex: sex).pluck(:content).sample
+    name
+  end
 
-      if surname_slugs > 1
-        surname += Syllable.where(part: 'surname_end', game_id: game, race_id: race, sex: sex).pluck(:content).sample
-      end
-
-      if rand > 0.5 && surname.present? && surname_slugs == 1
-        name = "#{name.capitalize} the #{surname}"
-      elsif surname.present?
-        name = "#{name.capitalize} #{surname}"
-      else
-        name = name.capitalize
-      end
-    else
-      name.capitalize!
+  def self.breton_name(game, race, sex)
+    name = ''
+    %w(beginning middle end).each do |part|
+      name += Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
     end
 
-    name
+    surname = ''
+    %w(surname_beginning surname_end).each do |part|
+      surname += Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
+    end
+
+    "#{name.capitalize} #{surname.capitalize}"
+  end
+
+  def self.name_with_simple_surname(game, race, sex)
+    name = ''
+    %w(beginning middle end).each do |part|
+      name += Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
+    end
+
+    surname = Syllable.where(part: 'surname_beginning', game_id: game, race_id: race, sex: 'male').pluck(:content).sample
+
+    "#{name.capitalize} #{surname}"
+  end
+
+  def self.nord_name_and_surname(game, race, sex)
+    name = ''
+    %w(beginning middle end).each do |part|
+      name += Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
+    end
+
+    surname = Syllable.where(part: 'surname_beginning', game_id: game, race_id: race, sex: sex).pluck(:content).sample
+
+    if rand > 0.5
+      full_name = "#{name.capitalize} the #{surname}"
+    elsif surname.present?
+      full_name = "#{name.capitalize} #{surname}"
+    else
+      full_name = name.capitalize
+    end
+
+    full_name
+  end
+
+  def self.orc_name(game, race, sex)
+    beginning = Syllable.where(part: 'beginning', game_id: game, race_id: race, sex: sex).pluck(:content).sample
+
+    if beginning.size <= 4
+      if rand > 0.8 && sex == 'male'
+        middle = Syllable.where(part: 'middle', game_id: game, race_id: race, sex: sex).pluck(:content).sample
+      else
+        middle = ''
+      end
+      ending = Syllable.where(part: 'end', game_id: game, race_id: race, sex: sex).pluck(:content).sample
+
+      name = "#{beginning}#{middle}#{ending}"
+    else
+      name = beginning
+    end
+
+    if rand > 0.5
+      prefix = sex == 'male' ? 'gro-' : 'gra-'
+      beginning = Syllable.where(part: 'beginning', game_id: game, race_id: race, sex: sex).pluck(:content).sample
+      ending = Syllable.where(part: 'end', game_id: game, race_id: race, sex: sex).pluck(:content).sample
+      surname = beginning + ending
+
+      "#{name.capitalize} #{prefix}#{surname.capitalize}"
+    else
+      "#{name.capitalize}"
+    end
   end
 end
