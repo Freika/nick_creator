@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112124956) do
+ActiveRecord::Schema.define(version: 20160129191101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160112124956) do
     t.integer  "game_id",    null: false
     t.string   "short_slug"
     t.string   "slug"
+    t.text     "content"
   end
 
   add_index "races", ["slug"], name: "index_races_on_slug", unique: true, using: :btree
