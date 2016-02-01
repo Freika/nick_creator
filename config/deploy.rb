@@ -3,7 +3,7 @@ set :repo_url, 'git@github.com:Freika/nick_creator.git'
 
 set :deploy_to, '/var/www/nick_creator'
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :rbenv_path, '/opt/rbenv/'
