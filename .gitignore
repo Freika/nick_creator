@@ -13,3 +13,6 @@
 /tmp
 /db/seeds.rb
 /db/seeds/*
+
+# Ignore application configuration
+/config/application.yml

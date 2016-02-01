@@ -17,8 +17,9 @@ gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
 
 gem 'execjs'
-
 gem 'therubyracer'
+
+gem 'figaro'
 
 # Add this if you're using rbenv
 gem 'capistrano-rbenv', github: "capistrano/rbenv"
