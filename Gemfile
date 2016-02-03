@@ -9,23 +9,10 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'friendly_id', '~> 5.1.0'
-
 gem 'text-hyphen'
-
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.1.2'
-gem 'capistrano-rails', '~> 1.1.1'
-
 gem 'execjs'
 gem 'therubyracer'
-
 gem 'figaro'
-
-# Add this if you're using rbenv
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
-
-# Add this if you're using rvm
-# gem 'capistrano-rvm', github: "capistrano/rvm"
 
 group :development, :test do
   gem 'byebug'
@@ -46,4 +33,18 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'capybara-webkit'
   gem 'codeclimate-test-reporter', require: nil
+end
+
+gem 'unicorn', '~> 4.8.3'
+
+group :development do
+  gem 'capistrano', '~> 3.2.1'
+  # rails specific capistrano functions
+  gem 'capistrano-rails', '~> 1.1.0'
+  # integrate bundler with capistrano
+  gem 'capistrano-bundler'
+  # if you are using Rbenv
+  gem 'capistrano-rbenv', "~> 2.0"
+  # include helper tasks
+  gem 'capistrano-cookbook', require: false
 end
