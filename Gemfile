@@ -14,6 +14,8 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'figaro'
 
+gem "rorvswild"
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
