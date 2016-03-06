@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -11,7 +10,6 @@
       <%= link_to 'RP Name<sub>xyz</sub>'.html_safe, root_path, class: 'navbar-brand' %>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown <%= active_game('the-elder-scrolls') %>">
@@ -45,14 +43,14 @@
           </ul>
         </li>
 
-        <li class="dropdown disabled <%= 'active' if params[:game_id] == 'world-of-warcraft' %>">
+        <li class="dropdown <%= 'active' if params[:game_id] == 'world-of-warcraft' %>">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World of Warcraft <span class="caret"></span></a>
-          <!-- <ul class="dropdown-menu">
+          <ul class="dropdown-menu">
             <li><a href="#">Orc</a></li>
             <li><a href="#">Troll</a></li>
             <li><a href="#">Undead</a></li>
             <li><a href="#">Tauren</a></li>
-            <li><a href="#">Blood Elf</a></li>
+            <li><%= link_to 'Blood Elf', game_race_path('world-of-warcraft', 'blood-elf') %></li>
             <li><a href="#">Goblin</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Human</a></li>
@@ -63,7 +61,7 @@
             <li><a href="#">Worgen</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Pandaren</a></li>
-          </ul> -->
+          </ul>
         </li>
 
         <!-- <li class="dropdown disabled <%= 'active' if params[:game_id] == 'guild-wars' %>"> -->

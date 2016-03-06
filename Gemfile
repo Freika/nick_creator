@@ -14,7 +14,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'figaro'
 
-gem "rorvswild"
+gem 'rorvswild'
 
 group :development, :test do
   gem 'byebug'
@@ -41,12 +41,8 @@ gem 'unicorn', '~> 4.8.3'
 
 group :development do
   gem 'capistrano', '~> 3.2.1'
-  # rails specific capistrano functions
   gem 'capistrano-rails', '~> 1.1.0'
-  # integrate bundler with capistrano
   gem 'capistrano-bundler'
-  # if you are using Rbenv
-  gem 'capistrano-rbenv', "~> 2.0"
-  # include helper tasks
+  gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-cookbook', require: false
 end
