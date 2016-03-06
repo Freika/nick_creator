@@ -40,6 +40,10 @@ class Nick < ActiveRecord::Base
       case race.name
       when 'Blood Elf'
         name = name_without_surname(game, race, sex)
+      when 'Draenei'
+        name = name_without_surname(game, race, sex)
+      else
+
       end
     end
 
@@ -49,7 +53,7 @@ class Nick < ActiveRecord::Base
   def self.name_without_surname(game, race, sex)
     name = %w(beginning middle end).map do |part|
       Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
-    end.join.to_s
+    end.join.to_s.capitalize
   end
 
   def self.breton_name(game, race, sex)
@@ -59,7 +63,7 @@ class Nick < ActiveRecord::Base
       Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
     end.join.to_s
 
-    "#{name.capitalize} #{surname.capitalize}"
+    "#{name} #{surname.capitalize}"
   end
 
   def self.name_with_simple_surname(game, race, sex)
@@ -67,7 +71,7 @@ class Nick < ActiveRecord::Base
 
     surname = Syllable.where(part: 'surname_beginning', game_id: game, race_id: race, sex: 'male').pluck(:content).sample
 
-    "#{name.capitalize} #{surname}"
+    "#{name} #{surname}"
   end
 
   def self.nord_name_and_surname(game, race, sex)
@@ -76,11 +80,11 @@ class Nick < ActiveRecord::Base
     surname = Syllable.where(part: 'surname_beginning', game_id: game, race_id: race, sex: sex).pluck(:content).sample
 
     if rand > 0.5
-      full_name = "#{name.capitalize} the #{surname}"
+      full_name = "#{name} the #{surname}"
     elsif surname.present?
-      full_name = "#{name.capitalize} #{surname}"
+      full_name = "#{name} #{surname}"
     else
-      full_name = name.capitalize
+      full_name = name
     end
 
     full_name
