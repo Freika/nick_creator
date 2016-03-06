@@ -42,6 +42,8 @@ class Nick < ActiveRecord::Base
         name = name_without_surname(game, race, sex)
       when 'Draenei'
         name = name_without_surname(game, race, sex)
+      when 'Dwarf'
+        name = start_end_name(game, race, sex)
       else
 
       end
@@ -52,6 +54,12 @@ class Nick < ActiveRecord::Base
 
   def self.name_without_surname(game, race, sex)
     name = %w(beginning middle end).map do |part|
+      Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
+    end.join.to_s.capitalize
+  end
+
+  def self.start_end_name(game, race, sex)
+    name = %w(beginning end).map do |part|
       Syllable.where(part: part, game_id: game, race_id: race, sex: sex).pluck(:content).sample
     end.join.to_s.capitalize
   end
